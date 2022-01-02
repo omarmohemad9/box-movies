@@ -1,0 +1,276 @@
+            @import 'mediaQuery/_mediaQ.scss',
+            'reset/_reset.scss',
+            'variable/_variable.scss';
+            body {
+                background-image: $bigGround;
+                outline: 21px solid #f5f5f55c;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+                // color: black;
+            }
+            
+            // filter 
+            .filter_Page {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                filter: blur(200);
+                background-image: linear-gradient( 319.9deg, #b39de7d1 17.1%, #fce9ffdb 75.86%);
+                z-index: 100;
+                transition: all 1s ease-out;
+                &.disable {
+                    left: -100%;
+                }
+            }
+            
+            // nav
+            .navbar {
+                padding: 20px 0;
+                .container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    h1 {
+                        color: black;
+                        span {
+                            color: $groundBtn;
+                        }
+                    }
+                    .input {
+                        flex-basis: 30%;
+                        position: relative;
+                        @media (max-width: $phone) {
+                            flex-basis: 50%;
+                        }
+                        svg {
+                            position: absolute;
+                            top: 51%;
+                            left: 3px;
+                            transform: translate(0, -50%);
+                            fill: $groundBtn;
+                        }
+                        input {
+                            width: 100%;
+                            padding: 12px 35px;
+                            border: 0;
+                            border-radius: $radiusBtn;
+                            background-color: $groundInput;
+                            &:focus {
+                                outline: 0;
+                                caret-color: $groundBtn;
+                            }
+                            &::placeholder {
+                                color: $groundBtn;
+                                font-weight: weight(regular_);
+                            }
+                        }
+                    }
+                    .img {
+                        flex-basis: 5%;
+                        @media (max-width: $phone) {
+                            display: none;
+                        }
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            
+            .content {
+                padding: 20px 0;
+                .container {
+                    .navContent {
+                        ul {
+                            list-style: none;
+                            li {
+                                display: inline-block;
+                                padding: 10px 7px;
+                                margin-right: 20px;
+                                font-weight: weight(regular_);
+                                &.active,
+                                &:hover {
+                                    color: $borderColor;
+                                    border-bottom: 2px solid $borderColor;
+                                }
+                            }
+                        }
+                    }
+                    .bigHead {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        @media (max-width: $phone) {
+                            flex-direction: column;
+                            gap: 30px;
+                        }
+                        .bigImgLeft {
+                            margin-top: 32px;
+                            flex-basis: 60%;
+                            overflow: hidden;
+                            position: relative;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 98%;
+                                width: 100%;
+                                background-color: black;
+                                opacity: 0.4;
+                                z-index: 2;
+                                border-radius: $radiusBtn;
+                            }
+                            img {
+                                width: 100%;
+                                border-radius: $radiusBtn;
+                            }
+                            button {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                z-index: 12;
+                                border: 0;
+                                background-color: transparent;
+                                cursor: pointer;
+                                svg {
+                                    height: 50px;
+                                    width: 50px;
+                                    fill: white;
+                                }
+                            }
+                        }
+                        .detailsFilm {
+                            flex-basis: 36%;
+                            h2 {
+                                margin-bottom: 10px;
+                            }
+                            .collect {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-start;
+                                background-image: linear-gradient( 90deg, rgba(255, 255, 255, 0.665) 40%, $transparentGround);
+                                padding: 1.5rem 1rem;
+                                border-radius: $radiusBtn;
+                                min-height: 190px;
+                                .imgRight {
+                                    flex-basis: 46%;
+                                    img {
+                                        width: 100%;
+                                        border-radius: $radiusBtn;
+                                    }
+                                }
+                                .contextFilm {
+                                    flex-basis: 51%;
+                                    // h3 {}
+                                    p {
+                                        color: gray;
+                                        margin-top: 15px;
+                                        margin-bottom: 30px;
+                                    }
+                                    button {
+                                        display: flex;
+                                        align-items: center;
+                                        padding: 7px 15px;
+                                        border: 0;
+                                        background-color: $groundBtn;
+                                        border-radius: $radiusBtn;
+                                        color: white;
+                                        svg {
+                                            height: 20px;
+                                            width: 20px;
+                                            margin-right: 10px;
+                                            fill: white;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .buttonSection {
+                .container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    button {
+                        border-radius: 50%;
+                        background-color: white;
+                        border: 0;
+                        padding: 11px 1rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+            
+            // images section cases 
+            .cases {
+                padding: 50px 0;
+                .container {
+                    .box-C::-webkit-scrollbar {
+                        width: 0;
+                    }
+                    .box-C {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                        gap: 20px;
+                        overflow-x: scroll;
+                        // pointer-events: none;
+                        .box {
+                            // pointer-events: none;
+                            user-select: none;
+                            flex-basis: 25%;
+                            background-color: white;
+                            border-radius: $radiusBtn;
+                            padding: 1rem;
+                            &.disable {
+                                display: none;
+                            }
+                            img {
+                                width: 240px;
+                                border-radius: $radiusBtn;
+                                pointer-events: none;
+                                user-select: none;
+                            }
+                            .contextBox {
+                                h2 {
+                                    padding: 10px 0;
+                                    text-transform: capitalize;
+                                    user-select: none;
+                                }
+                                p {
+                                    color: $gray;
+                                    padding: 5px 0 20px;
+                                    user-select: none;
+                                }
+                                button {
+                                    // user-select: ;
+                                    float: right;
+                                    display: flex;
+                                    align-items: center;
+                                    padding: 7px 15px;
+                                    border: 0;
+                                    background-color: $groundBtn;
+                                    border-radius: $radiusBtn;
+                                    color: white;
+                                    cursor: pointer;
+                                    svg {
+                                        height: 20px;
+                                        width: 20px;
+                                        margin-right: 10px;
+                                        fill: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
