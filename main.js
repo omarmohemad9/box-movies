@@ -41,12 +41,9 @@ inputSearch.onkeyup = function() {
 
         if (txtV.toUpperCase().indexOf(result.toUpperCase()) > -1) {
             parentsChildrens[i].style.display = "";
-            console.log(result.toUpperCase());
         } else {
             parentsChildrens[i].style.display = "none";
-            console.log("false");
         }
-        console.log("ok");
     }
 };
 
@@ -96,7 +93,6 @@ next.onclick = function() {
 
     parents.scrollLeft = 200 * count;
 
-    console.log(count);
 };
 
 prev.onclick = function() {
@@ -107,5 +103,4 @@ prev.onclick = function() {
     }
     parents.scrollLeft = 200 * count;
 
-    console.log(count);
 };
